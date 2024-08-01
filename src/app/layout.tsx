@@ -17,7 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={cn(inter.className,"prose py-10 container max-w-md")}>{children}</body>
+      <body
+        className={cn(
+          inter.className,
+          "prose py-10 container max-w-md bg-blue-100/30"
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }
