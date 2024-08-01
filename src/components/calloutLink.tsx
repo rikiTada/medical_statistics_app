@@ -8,7 +8,10 @@ type CalloutLinkProps = {
 export default function CalloutLink({ href, title }: CalloutLinkProps) {
   return (
     <Button asChild>
-      <a href={href} className="border bg-muted w-full py-2 px-4 my-4">
+      <a
+        href={href}
+        className="no-underline border bg-muted w-full py-2 px-4 my-4"
+      >
         {title}
       </a>
     </Button>
