@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className+ " "+"prose py-10 container max-w-md"}>{children}</body>
+      <body className={cn(inter.className,"prose py-10 container max-w-md")}>{children}</body>
     </html>
   );
 }
