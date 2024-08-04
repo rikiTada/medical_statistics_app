@@ -18,8 +18,8 @@ type SidebarProps = Readonly<{
   className?: string;
 }>;
 
-export default function Sidebar({ className }: SidebarProps) {
-  const articles = getArticle("src/content");
+export default async function Sidebar({ className }: SidebarProps) {
+  const articles = await getArticle("src/content");
 
   const menuList = [
     {

@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { CustomMDX } from "@/components/mdx-remote";
 
 export async function generateStaticParams() {
   const files = fs.readdirSync(path.join("src/content"));
@@ -33,10 +34,10 @@ export default function Page({ params }: any) {
   const props = getPost(params);
 
   return (
-    <article className="prose prose-sm md:prose-base lg:prose-lg prose-slate">
+    <article className="prose">
       {/* <h1>{props.fontMatter.title}</h1> */}
 
-      <MDXRemote source={props.content}></MDXRemote>
+      <CustomMDX source={props.content} {...props} />
     </article>
   );
 }

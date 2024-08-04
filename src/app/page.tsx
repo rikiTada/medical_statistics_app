@@ -1,11 +1,8 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 import Link from "next/link";
 import { getArticle } from "@/lib/mdx";
 
-export default function Home() {
-  const articles = getArticle("src/content");
+export default async function Home() {
+  const articles = await getArticle("src/content");
   return (
     <main className="grid">
       <h1 className="text-3xl font-bold">医療統計くん</h1>

@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export const getArticle = (dir: string) => {
+// const rootDirectory = path.join(process.cwd(), "src", "content");
+
+export const getArticle = async (dir: string) => {
   const files = fs.readdirSync(path.join(dir));
 
   return files.map((filename) => {
