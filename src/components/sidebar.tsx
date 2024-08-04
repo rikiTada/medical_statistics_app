@@ -52,7 +52,7 @@ export default async function Sidebar({ className }: SidebarProps) {
         <div className="overflow-hidden px-2 py-1.5 ">
           {menuList.map((menu) => (
             <div key={menu.group} className="py-2">
-              <span className="text-xs py-2">{menu.group}</span>
+              <span className="text-xs my-2">{menu.group}</span>
               {menu.items.map((item) => (
                 <div
                   key={item.link}
