@@ -2,21 +2,10 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import Link from "next/link";
+import { getArticle } from "@/lib/mdx";
 
 export default function Home() {
-  const blogDir = "src/content";
-
-  const files = fs.readdirSync(path.join(blogDir));
-
-  const articles = files.map((filename) => {
-    const fileContent = fs.readFileSync(path.join(blogDir, filename), "utf-8");
-
-    const { data: frontMatter } = matter(fileContent);
-    return {
-      meta: frontMatter,
-      slug: filename.replace(".mdx", ""),
-    };
-  });
+  const articles = getArticle("src/content");
   return (
     <main className="grid">
       <h1 className="text-3xl font-bold">医療統計くん</h1>

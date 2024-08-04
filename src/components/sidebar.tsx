@@ -12,27 +12,23 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 import { group } from "console";
+import { getArticle } from "@/lib/mdx";
 
 type SidebarProps = Readonly<{
   className?: string;
 }>;
 
 export default function Sidebar({ className }: SidebarProps) {
+  const articles = getArticle("src/content");
+
   const menuList = [
     {
       group: "記事一覧",
-      items: [
-        { link: "/articles/first-post", text: "記事テスト1" },
-        { link: "/articles/second-post", text: "記事テスト2" },
-      ],
+      items: articles.map((article) => ({
+        link: `/articles/${article.slug}`,
+        text: article.meta.title,
+      })),
     },
-    // {
-    //   group: "設定",
-    //   items: [
-    //     { link: "/", text: "プロフィール" },
-    //     { link: "/", text: "各種設定" },
-    //   ],
-    // },
   ];
 
   return (
