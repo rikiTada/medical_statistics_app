@@ -35,12 +35,12 @@ export default async function Sidebar({ className }: SidebarProps) {
     <div
       className={cn(
         className,
-        "bg-[hsl(216_84_29)] p-4 min-w-60 overflow-y-auto no-scrollbar"
+        "bg-blue-900 p-4 min-w-60 overflow-y-auto no-scrollbar"
       )}
     >
       <Link
         href="/"
-        className="text-card flex gap-2 items-center py-2 px-1 my-2 rounded hover:bg-[hsl(216,78%,15%)]"
+        className="text-card flex gap-2 items-center py-2 px-1 my-2 rounded hover:bg-blue-950"
       >
         <Home color="white" />
         <span>HOME</span>
@@ -56,7 +56,7 @@ export default async function Sidebar({ className }: SidebarProps) {
               {menu.items.map((item) => (
                 <div
                   key={item.link}
-                  className="p-1 w-full hover:bg-[hsl(216,78%,15%)]  hover:text-primary-background rounded"
+                  className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
                 >
                   <Link href={item.link} className="text-base ">
                     <span className="truncate block">- {item.text}</span>
