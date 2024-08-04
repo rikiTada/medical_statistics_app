@@ -26,7 +26,11 @@ export default function Home() {
 
         <div className="grid gap-2">
           {articles.map((article) => (
-            <Link href={"/article/" + article.slug} passHref key={article.slug}>
+            <Link
+              href={"/articles/" + article.slug}
+              passHref
+              key={article.slug}
+            >
               <div className="border p-4 rounded">
                 <h3 className="m-0 text-lg font-blod">{article.meta.title}</h3>
                 {/* <p className="text-gray-400">{article.meta.description}</p>

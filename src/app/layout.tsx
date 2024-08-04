@@ -21,13 +21,11 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          "prose min-h-screen px-4 py-2 bg-blue-100/30"
+          "min-h-screen px-4 bg-blue-100/30 flex gap-8 "
         )}
       >
-        <div className="flex gap-8 min-h-full">
-          <Sidebar className="" />
-          <div className="min-w-full py-4">{children}</div>
-        </div>
+        <Sidebar />
+        <div className="w-full py-4">{children}</div>
       </body>
     </html>
   );
