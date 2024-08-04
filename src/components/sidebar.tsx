@@ -58,8 +58,8 @@ export default async function Sidebar({ className }: SidebarProps) {
                   key={item.link}
                   className="p-1 w-full hover:bg-[hsl(216,78%,15%)]  hover:text-primary-background rounded"
                 >
-                  <Link href={item.link} className="text-base">
-                    - {item.text}
+                  <Link href={item.link} className="text-base ">
+                    <span className="truncate block">- {item.text}</span>
                   </Link>
                 </div>
               ))}
