@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import { MDXRemote } from "next-mdx-remote/rsc";
+// import { MDXRemote } from "next-mdx-remote/rsc";
 import { CustomMDX } from "@/components/mdx-remote";
 
 export async function generateStaticParams() {
@@ -31,6 +31,7 @@ function getPost({ slug }: { slug: string }) {
 }
 
 export default function Page({ params }: any) {
+  // TODO swrから取得するように変更
   const props = getPost(params);
 
   return (
