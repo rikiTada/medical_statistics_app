@@ -1,30 +1,20 @@
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-} from "@/components/ui/command";
+"use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
-import { group } from "console";
-import { getArticle } from "@/lib/mdx";
+import { useGetAllArticle } from "@/hooks/swr/article";
 
 type SidebarProps = Readonly<{
   className?: string;
 }>;
 
-export default async function Sidebar({ className }: SidebarProps) {
-  const articles = await getArticle("src/content");
+export default function Sidebar({ className }: SidebarProps) {
+  const { data } = useGetAllArticle();
 
   const menuList = [
     {
       group: "記事一覧",
-      items: articles.map((article) => ({
+      items: data?.map((article) => ({
         link: `/articles/${article.slug}`,
         text: article.meta.title,
       })),
@@ -53,16 +43,18 @@ export default async function Sidebar({ className }: SidebarProps) {
           {menuList.map((menu) => (
             <div key={menu.group} className="py-2">
               <span className="text-xs my-2">{menu.group}</span>
-              {menu.items.map((item) => (
-                <div
-                  key={item.link}
-                  className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
-                >
-                  <Link href={item.link} className="text-base ">
-                    <span className="truncate block">- {item.text}</span>
-                  </Link>
-                </div>
-              ))}
+              {menu.items
+                ? menu.items.map((item) => (
+                    <div
+                      key={item.link}
+                      className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
+                    >
+                      <Link href={item.link} className="text-base ">
+                        <span className="truncate block">- {item.text}</span>
+                      </Link>
+                    </div>
+                  ))
+                : null}
             </div>
           ))}
         </div>

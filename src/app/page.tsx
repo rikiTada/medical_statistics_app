@@ -1,10 +1,6 @@
-// "use client";
-import { useWindowSize } from "usehooks-ts";
 import HomePage from "@/components/page/homePage";
 
 export default function Home() {
-  // const { width = 0, height = 0 } = useWindowSize();
-
   return (
     <main>
       <h1 className="text-3xl font-bold my-4">医療統計くん</h1>
