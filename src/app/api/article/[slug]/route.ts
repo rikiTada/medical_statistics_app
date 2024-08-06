@@ -1,12 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/app/api/_lib";
-import { getArticle, getArticleBySlug } from "@/lib/mdx";
-import { ROOT_DIRECTORY } from "@/lib/const";
+import { getArticleBySlug } from "@/lib/mdx";
 
 /**
- * 記事取得 API
+ * 記事1件取得 API
  *
- * GET /api/artice
+ * GET /api/artice/[slug]
  */
 export async function GET(
   req: NextRequest,
