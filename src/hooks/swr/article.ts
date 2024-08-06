@@ -8,14 +8,38 @@ type Article = {
     date: string;
     description: string;
   };
+  content?: string;
 };
 
-export const getAllArticle = async () => {
+// 全件取得
+const getAllArticle = async () => {
   const res = await fetch(API_URL);
   if (!res.ok) throw new Error("Failed to fetch articles");
   return res.json();
 };
-
 export const useGetAllArticle = () => {
   return useSWR<Article[]>(API_URL, getAllArticle);
+};
+
+//一件取得
+// const getArticleBySlug = async (slug: string) => {
+//   const res = await fetch(`${API_URL}/${slug}`);
+//   if (!res.ok) throw new Error("Failed to fetch articles");
+//   return res.json();
+// };
+
+// export const useGetArticleBySlug = (slug: string) => {
+//   return useSWR<Article>(
+//     `${API_URL}/${slug}`,
+//     async () => await getArticleBySlug(slug)
+//   );
+// };
+
+export const getArticleBySlug = async (slug: string) => {
+  const res = await fetch(API_URL + "/" + slug);
+  if (!res.ok) throw new Error("Failed to fetch articles");
+  return res.json();
+};
+export const useGetArticleBySlug = (slug: string) => {
+  return useSWR<Article>(API_URL, getAllArticle);
 };
