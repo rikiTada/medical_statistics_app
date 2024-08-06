@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/app/api/_lib";
-import { getArticle } from "@/lib/mdx";
+import { getArticle, getArticleBySlug } from "@/lib/mdx";
 import { ROOT_DIRECTORY } from "@/lib/const";
 
 /**
@@ -10,10 +10,10 @@ import { ROOT_DIRECTORY } from "@/lib/const";
  */
 export async function GET(
   req: NextRequest,
-  { params }: { params: { slug: string } }
+  { params: { slug } }: { params: { slug: string } }
 ): Promise<NextResponse> {
   try {
-    const data = await getArticle(ROOT_DIRECTORY);
+    const data = await getArticleBySlug(slug);
 
     return ApiResponse.successResponse(data);
   } catch (error: unknown) {
