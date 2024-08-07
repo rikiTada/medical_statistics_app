@@ -5,6 +5,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import style from "./components.module.scss";
 import { cn } from "@/lib/utils";
+import { CustomMDXProps } from "@/types";
 
 const customComponents = {
   // eslint-disable-next-line jsx-a11y/alt-text
@@ -15,9 +16,9 @@ const customComponents = {
   Underline: (props: any) => <span className="p-0.5 underline" {...props} />,
 };
 
-export async function CustomMDX(props: any) {
+export async function CustomMDX(props: CustomMDXProps) {
   const { content, frontmatter } = await compileMDX({
-    source: props.source,
+    source: props.content,
     components: {
       h1: (props: any) => (
         <h1 className="text-3xl font-bold text-blue-900" {...props} />
@@ -43,5 +44,10 @@ export async function CustomMDX(props: any) {
     },
   });
 
-  return <>{content}</>;
+  return (
+    <>
+      <div className="my-1">{props.meta.date}</div>
+      {content}
+    </>
+  );
 }
