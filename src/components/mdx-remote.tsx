@@ -1,4 +1,7 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
+import rehypePrettyCode from "rehype-pretty-code";
+import remarkBreaks from "remark-breaks";
+import { compileMDX } from "next-mdx-remote/rsc";
 
 const components = {
   h1: (props: any) => (
@@ -8,11 +11,22 @@ const components = {
   em: (props: any) => <em className="italic" {...props} />,
 };
 
-export function CustomMDX(props: any) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-    />
-  );
+export async function CustomMDX(props: any) {
+  const data= await compileMDX({
+    source: props.source,
+    components: {
+      ...components,
+      // Image: (props: any) => <Image {...props} />,
+      // HighLight: (props: any) => <HighLight {...props} />,
+    },
+    options: {
+      parseFrontmatter: true,
+        mdxOptions: {
+        rehypePlugins: [remarkGfm,rehypePrettyCode],
+        remarkPlugins: [remarkBreaks],
+      }
+    }
+  });
+
+  return<>{data.content}</>
 }
