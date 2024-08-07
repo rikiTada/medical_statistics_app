@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./globals.scss";
 import { cn } from "@/lib/utils";
 import Sidebar from "@/components/sidebar";
+import { Button } from "@/components/ui/button";
+import { ChevronUp } from "lucide-react";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
+    <html lang="ja" className="scroll-smooth">
       <body
         className={cn(
           inter.className,
@@ -25,7 +28,19 @@ export default function RootLayout({
         )}
       >
         <Sidebar />
-        <div className="w-full py-4">{children}</div>
+        <div className="w-full py-4">
+          <span id="#TOP"></span>
+          {children}
+        </div>
+
+        <Button
+          size="icon"
+          className="fixed bottom-6 right-2 bg-blue-900 hover:bg-blue-900/90"
+        >
+          <a href="#">
+            <ChevronUp />
+          </a>
+        </Button>
       </body>
     </html>
   );

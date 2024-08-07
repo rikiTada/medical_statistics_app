@@ -1,6 +1,7 @@
 import useSWR from "swr";
-// const API_URL = "http://localhost:3000/api/article";
-const API_URL = "https://jubilant-halibut-x6x4v67gjvgfvgvj-3000.app.github.dev/api/article";
+
+const URL = process.env.NEXT_PUBLIC_URL;
+const API_URL = `${URL}/api/article`;
 
 type Article = {
   slug: string;
@@ -14,6 +15,7 @@ type Article = {
 
 // 全件取得
 const getAllArticle = async () => {
+  console.log("API_URL", URL);
   const res = await fetch(API_URL);
   if (!res.ok) throw new Error("Failed to fetch articles");
   return res.json();

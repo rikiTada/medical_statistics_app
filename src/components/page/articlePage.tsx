@@ -1,12 +1,18 @@
-import { CustomMDX } from "@/components/mdx-remote";
+import { CustomMDX } from "@/components/custom-mdx";
 import { getArticleBySlug } from "@/lib/mdx";
 
 export default async function ArticlePage({ slug }: { slug: string }) {
   const data = await getArticleBySlug(slug);
 
   return (
-    <article className="prose">
-      <CustomMDX source={data.content} {...data} />
-    </article>
+    <>
+      <article className="prose my-4">
+        <CustomMDX source={data.content} {...data} />
+      </article>
+
+      <div className="h-16 bg-card shadow-sm border rounded grid place-items-center">
+        {/* WIP */}← 押したら次のページ行くやつ →
+      </div>
+    </>
   );
 }
