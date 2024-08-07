@@ -1,5 +1,6 @@
 import useSWR from "swr";
-const API_URL = "http://localhost:3000/api/article";
+// const API_URL = "http://localhost:3000/api/article";
+const API_URL = "https://jubilant-halibut-x6x4v67gjvgfvgvj-3000.app.github.dev/api/article";
 
 type Article = {
   slug: string;

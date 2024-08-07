@@ -2,6 +2,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkBreaks from "remark-breaks";
 import { compileMDX } from "next-mdx-remote/rsc";
+import Image from "next/image";
 
 const components = {
   h1: (props: any) => (
@@ -12,12 +13,13 @@ const components = {
 };
 
 export async function CustomMDX(props: any) {
-  const data= await compileMDX({
+  const {content,frontmatter}= await compileMDX({
     source: props.source,
     components: {
       ...components,
-      // Image: (props: any) => <Image {...props} />,
-      // HighLight: (props: any) => <HighLight {...props} />,
+      // eslint-disable-next-line jsx-a11y/alt-text
+      Image: (props: any) => <Image {...props} />,
+      HighLight: (props: any) => <span className="bg-yellow-500/50" {...props} />,
     },
     options: {
       parseFrontmatter: true,
@@ -28,5 +30,5 @@ export async function CustomMDX(props: any) {
     }
   });
 
-  return<>{data.content}</>
+  return<>aa{content}</>
 }

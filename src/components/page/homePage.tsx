@@ -5,6 +5,7 @@ import Link from "next/link";
 export default function HomePage() {
   const { data } = useGetAllArticle();
 
+  console.log(data);
   if (!data) return <div>loading...</div>;
 
   return (
