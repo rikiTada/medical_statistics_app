@@ -24,23 +24,22 @@ export default function RootLayout({
       <body
         className={cn(
           inter.className,
-          "min-h-screen px-4 bg-blue-100/30 flex gap-8 "
+          "min-h-screen px-4 bg-blue-100/30 flex "
         )}
       >
         <Sidebar />
-        <div className="w-full py-4">
+        <div className="w-full md:ml-8 py-4">
           <span id="#TOP"></span>
           {children}
+          <Button
+            size="icon"
+            className="fixed bottom-6 right-4 bg-blue-900 hover:bg-blue-900/90"
+          >
+            <a href="#">
+              <ChevronUp />
+            </a>
+          </Button>
         </div>
-
-        <Button
-          size="icon"
-          className="fixed bottom-6 right-2 bg-blue-900 hover:bg-blue-900/90"
-        >
-          <a href="#">
-            <ChevronUp />
-          </a>
-        </Button>
       </body>
     </html>
   );

@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Home } from "lucide-react";
 import { useGetAllArticle } from "@/hooks/swr/article";
+import style from "./components.module.scss";
 
 type SidebarProps = Readonly<{
   className?: string;
@@ -25,6 +26,7 @@ export default function Sidebar({ className }: SidebarProps) {
     <div
       className={cn(
         className,
+        style.sidebar,
         "bg-blue-900 p-4 min-w-60 overflow-y-auto no-scrollbar"
       )}
     >
