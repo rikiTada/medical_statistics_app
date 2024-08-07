@@ -30,5 +30,5 @@ export async function CustomMDX(props: any) {
     }
   });
 
-  return<>aa{content}</>
+  return<>{content}</>
 }
