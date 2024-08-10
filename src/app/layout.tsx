@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
+// import { Hachi_Maru_Pop } from "next/font/google";
 import "./globals.scss";
 import { cn } from "@/lib/utils";
 import Sidebar from "@/components/sidebar";
 import { Button } from "@/components/ui/button";
 import { ChevronUp } from "lucide-react";
 
-const inter = Inter({ subsets: ["latin"] });
+const NotoSansJp = Noto_Sans_JP({ subsets: ["latin"] });
+// const HachiMaruPopFont = Hachi_Maru_Pop({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +24,7 @@ export default function RootLayout({
     <html lang="ja" className="scroll-smooth">
       <body
         className={cn(
-          inter.className,
+          NotoSansJp.className,
           "min-h-screen px-4 bg-blue-100/30 flex "
         )}
       >
