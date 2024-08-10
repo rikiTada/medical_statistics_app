@@ -1,16 +1,15 @@
-"use client";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import { useGetAllArticle } from "@/hooks/swr/article";
 import style from "./components.module.scss";
+import { dbGetArticle } from "@/lib/mdx";
 
 type SidebarProps = Readonly<{
   className?: string;
 }>;
 
-export default function Sidebar({ className }: SidebarProps) {
-  const { data } = useGetAllArticle();
+export default async function Sidebar({ className }: SidebarProps) {
+  const data = await dbGetArticle();
 
   const menuList = [
     {

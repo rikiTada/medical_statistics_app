@@ -1,11 +1,8 @@
-"use client";
-import { useGetAllArticle } from "@/hooks/swr/article";
+import { dbGetArticle } from "@/lib/mdx";
 import Link from "next/link";
 
-export default function HomePage() {
-  const { data } = useGetAllArticle();
-
-  if (!data) return <div>loading...</div>;
+export default async function HomePage() {
+  const data = await dbGetArticle();
 
   return (
     <section className="p-4 rounded bg-background">
