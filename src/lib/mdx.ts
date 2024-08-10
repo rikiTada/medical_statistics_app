@@ -5,7 +5,7 @@ import { ROOT_DIRECTORY } from "@/lib/const";
 
 // const rootDirectory = path.join(process.cwd(), "src", "content");
 
-export const getArticle = async () => {
+export const dbGetArticle = async () => {
   const files = fs.readdirSync(path.join(ROOT_DIRECTORY));
 
   return files.map((filename) => {
@@ -22,7 +22,7 @@ export const getArticle = async () => {
   });
 };
 
-export const getArticleBySlug = async (slug: string) => {
+export const dbGetArticleBySlug = async (slug: string) => {
   const markdownFile = fs.readFileSync(
     path.join("src/content", slug + ".mdx"),
     "utf-8"

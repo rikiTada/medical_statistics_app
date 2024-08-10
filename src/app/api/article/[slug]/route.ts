@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/lib/api-util";
-import { getArticleBySlug } from "@/lib/mdx";
+import { dbGetArticleBySlug } from "@/lib/mdx";
 
 /**
  * 記事1件取得 API
@@ -12,7 +12,7 @@ export async function GET(
   { params: { slug } }: { params: { slug: string } }
 ): Promise<NextResponse> {
   try {
-    const data = await getArticleBySlug(slug);
+    const data = await dbGetArticleBySlug(slug);
 
     return ApiResponse.successResponse(data);
   } catch (error: unknown) {

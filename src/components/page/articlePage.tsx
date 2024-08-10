@@ -1,9 +1,9 @@
 import { CustomMDX } from "@/components/custom-mdx";
-import { getArticleBySlug } from "@/lib/mdx";
+import { dbGetArticleBySlug } from "@/lib/mdx";
 import { CustomMDXProps } from "@/lib/types";
 
 export default async function ArticlePage({ slug }: { slug: string }) {
-  const data = (await getArticleBySlug(slug)) as CustomMDXProps;
+  const data = (await dbGetArticleBySlug(slug)) as CustomMDXProps;
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/lib/api-util";
-import { getArticle } from "@/lib/mdx";
+import { dbGetArticle } from "@/lib/mdx";
 
 /**
  * 記事取得 API
@@ -9,7 +9,7 @@ import { getArticle } from "@/lib/mdx";
  */
 export async function GET(_req: NextRequest): Promise<NextResponse> {
   try {
-    const data = await getArticle();
+    const data = await dbGetArticle();
 
     return ApiResponse.successResponse(data);
   } catch (error: unknown) {
