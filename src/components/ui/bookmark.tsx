@@ -1,6 +1,6 @@
 import { unfurl } from "unfurl.js";
 import style from "./ui.module.scss";
-import Image from "next/image";
+// import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 type BookmarkProps = {

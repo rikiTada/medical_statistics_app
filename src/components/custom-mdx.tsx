@@ -29,7 +29,7 @@ export async function CustomMDX(props: CustomMDXProps) {
       h1: (props: any) => (
         <h1 className="text-3xl font-bold text-blue-900" {...props} />
       ),
-      p: (props: any) => <p className="text-wrap whitespace-pre" {...props} />,
+      p: (props: any) => <p className="" {...props} />,
       em: (props: any) => <em className="italic" {...props} />,
       a: (props: any) => (
         <a
