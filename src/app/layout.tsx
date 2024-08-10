@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import Sidebar from "@/components/sidebar";
 import { Button } from "@/components/ui/button";
 import { ChevronUp } from "lucide-react";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
