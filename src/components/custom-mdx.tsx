@@ -5,7 +5,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import style from "./components.module.scss";
 import { cn } from "@/lib/utils";
-import { CustomMDXProps } from "@/types";
+import { CustomMDXProps } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Indent } from "@/components/ui/indent";
 import Bookmark from "@/components/ui/bookmark";

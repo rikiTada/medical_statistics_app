@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ApiResponse } from "@/app/api/_lib";
+import { ApiResponse } from "@/lib/api";
 import { getArticleBySlug } from "@/lib/mdx";
 
 /**
