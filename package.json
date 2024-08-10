@@ -32,6 +32,7 @@
     "swr": "^2.2.5",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
+    "unfurl.js": "^6.4.0",
     "usehooks-ts": "^3.1.0",
     "uuidv7": "^1.0.1"
   },

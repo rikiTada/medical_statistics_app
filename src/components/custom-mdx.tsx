@@ -6,8 +6,9 @@ import Image from "next/image";
 import style from "./components.module.scss";
 import { cn } from "@/lib/utils";
 import { CustomMDXProps } from "@/types";
-import { Button } from "./ui/button";
-import { Indent } from "./ui/indent";
+import { Button } from "@/components/ui/button";
+import { Indent } from "@/components/ui/indent";
+import Bookmark from "@/components/ui/bookmark";
 
 const customComponents = {
   // eslint-disable-next-line jsx-a11y/alt-text
@@ -18,6 +19,7 @@ const customComponents = {
   Underline: (props: any) => <span className="p-0.5 underline" {...props} />,
   Indent: (props: any) => <Indent tab={props.tab} {...props} />,
   Button: (props: any) => <Button {...props} />,
+  Bookmark: (props: any) => <Bookmark {...props} />,
 };
 
 export async function CustomMDX(props: CustomMDXProps) {

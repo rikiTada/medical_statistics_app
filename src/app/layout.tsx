@@ -27,7 +27,7 @@ export default function RootLayout({
         )}
       >
         <Sidebar />
-        <div className="w-full md:ml-8 py-4">
+        <div className="w-full max-w-full md:ml-8 py-4">
           <span id="#TOP"></span>
           {children}
           <Button

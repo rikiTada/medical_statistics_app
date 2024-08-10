@@ -7,7 +7,7 @@ export default async function ArticlePage({ slug }: { slug: string }) {
 
   return (
     <>
-      <article className="prose my-4">
+      <article className="prose my-4 w-full max-w-full">
         <CustomMDX {...data} />
       </article>
 
