@@ -9,6 +9,7 @@ import { CustomMDXProps } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Indent } from "@/components/ui/indent";
 import Bookmark from "@/components/ui/bookmark";
+import { MdxAccordion as Accordion } from "@/components/mdx/mdx-accordion";
 
 const customComponents = {
   // eslint-disable-next-line jsx-a11y/alt-text
@@ -20,6 +21,7 @@ const customComponents = {
   Indent: (props: any) => <Indent tab={props.tab} {...props} />,
   Button: (props: any) => <Button {...props} />,
   Bookmark: (props: any) => <Bookmark {...props} />,
+  Accordion: (props: any) => <Accordion {...props} />,
 };
 
 export async function CustomMDX(props: CustomMDXProps) {
@@ -51,9 +53,9 @@ export async function CustomMDX(props: CustomMDXProps) {
   });
 
   return (
-    <>
+    <div className="mb-16">
       <div className="my-1">{props.meta.date}</div>
       {content}
-    </>
+    </div>
   );
 }
