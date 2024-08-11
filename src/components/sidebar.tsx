@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Home } from "lucide-react";
-import style from "./components.module.scss";
+import style from "@/components/components.module.scss";
 import { dbGetArticle } from "@/lib/mdx";
 
 type SidebarProps = Readonly<{
@@ -31,7 +31,7 @@ export default async function Sidebar({ className }: SidebarProps) {
     >
       <Link
         href="/"
-        className="text-card flex gap-2 items-center py-2 px-1 my-2 rounded hover:bg-blue-950"
+        className="text-card flex gap-2 items-center py-2 px-2 my-2 rounded hover:bg-blue-950"
       >
         <Home color="white" />
         <span>HOME</span>

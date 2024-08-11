@@ -1,5 +1,5 @@
 import { unfurl } from "unfurl.js";
-import style from "./ui.module.scss";
+import style from "@/components/ui/ui.module.scss";
 // import Image from "next/image";
 import { cn } from "@/lib/utils";
 
