@@ -39,7 +39,7 @@ import { metadata } from "@/app/layout";
 // };
 
 export const dbGetArticle = async () => {
-  const meta = { title: "", slug: "" };
+  const meta = { title: "", slug: "", date: "" };
   const data = "";
   const slug = "";
   return [{ meta, slug, data }];
