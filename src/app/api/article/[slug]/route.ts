@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/lib/api-util";
 import { dbGetArticleBySlug } from "@/lib/mdx";
 
+export const runtime = "edge";
+
 /**
  * 記事1件取得 API
  *
