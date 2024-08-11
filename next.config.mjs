@@ -2,10 +2,11 @@ import remarkGfm from "remark-gfm";
 import createMDX from "@next/mdx";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkBreaks from "remark-breaks";
+import { setupDevPlatform } from "@cloudflare/next-on-pages/next-dev";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: `export`, //cloudflare workers setting
+  // output: `export`, //cloudflare workers setting
   // Configure `pageExtensions`` to include MDX files
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   // Optionally, add any other Next.js config below
@@ -18,6 +19,10 @@ const nextConfig = {
     ],
   },
 };
+
+if (process.env.NODE_ENV === "development") {
+  await setupDevPlatform();
+}
 
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
