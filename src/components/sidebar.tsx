@@ -2,21 +2,24 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Home } from "lucide-react";
 import style from "@/components/components.module.scss";
-import { dbGetArticle } from "@/lib/mdx";
+import { listFiles } from "@/lib/strage";
 
 type SidebarProps = Readonly<{
   className?: string;
 }>;
 
 export default async function Sidebar({ className }: SidebarProps) {
-  const data = await dbGetArticle();
+  const data = await listFiles();
+
+  console.log("Sidebar:", data);
 
   const menuList = [
     {
       group: "記事一覧",
       items: data?.map((article) => ({
-        link: `/articles/${article.slug}`,
-        text: article.meta.title,
+        link: `/articles/${article.Key}`,
+        // text: article.meta.title,
+        text: article.Key,
       })),
     },
   ];

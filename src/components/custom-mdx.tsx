@@ -6,7 +6,7 @@ import { CustomMDXProps } from "@/lib/types";
 
 import { customComponents as components } from "@/components/mdx";
 
-export async function CustomMDX(props: CustomMDXProps) {
+export async function CustomMDX(props: any) {
   const { content, frontmatter } = await compileMDX({
     source: props.content,
     components,
@@ -21,7 +21,7 @@ export async function CustomMDX(props: CustomMDXProps) {
 
   return (
     <div className="mb-16">
-      <div className="my-1">{props.meta.date}</div>
+      {/* <div className="my-1">{props.meta.date}</div> */}
       {content}
     </div>
   );
