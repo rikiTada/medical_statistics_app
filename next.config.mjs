@@ -18,6 +18,12 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      config.optimization.usedExports = true;
+    }
+    return config;
+  },
 };
 
 if (process.env.NODE_ENV === "development") {

@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/lib/api-util";
-import { dbGetArticle } from "@/lib/mdx";
+import { listFiles } from "@/lib/strage";
 
 /**
- * 記事取得 API
+ * ストレージ全件取得 API
  *
- * GET /api/artice
+ * GET /api/storage
  */
 export async function GET(_req: NextRequest): Promise<NextResponse> {
   try {
-    const data = await dbGetArticle();
+    const files = await listFiles();
 
-    return ApiResponse.successResponse(data);
+    return ApiResponse.successResponse(files);
   } catch (error: unknown) {
     return ApiResponse.errorResponse(error, 404);
   }
