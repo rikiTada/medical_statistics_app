@@ -2,3 +2,9 @@ name = "medistics-app"
 compatibility_date = "2024-07-29"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB" # i.e. available in your Worker on env.DB
+database_name = "medistics-app"
+database_id = "b0ce3502-917f-4ed7-aad9-b22cdbefa392"
+migrations_dir="drizzle/migarations"
