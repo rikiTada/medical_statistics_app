@@ -17,5 +17,5 @@ export type CustomMDXProps = {
     date: string;
   };
   slug: string;
-  content: any;
+  // content: any;
 };

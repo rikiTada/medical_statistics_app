@@ -18,6 +18,13 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      config.optimization.usedExports = true;
+    }
+    config.resolve.fallback = { fs: false };
+    return config;
+  },
 };
 
 if (process.env.NODE_ENV === "development") {
