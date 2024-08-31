@@ -14,8 +14,6 @@
     "migrate": "warangler d1 migrattions apply medistics-app --local"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.629.0",
-    "@cloudflare/workers-types": "^4.20240806.0",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.5",
@@ -41,7 +39,6 @@
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "unfurl.js": "^6.4.0",
-    "usehooks-ts": "^3.1.0",
     "uuidv7": "^1.0.1"
   },
   "devDependencies": {
@@ -55,10 +52,6 @@
     "drizzle-kit": "^0.24.0",
     "drizzle-orm": "^0.33.0",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-simple-import-sort": "12.1.0",
-    "eslint-plugin-storybook": "0.8.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
