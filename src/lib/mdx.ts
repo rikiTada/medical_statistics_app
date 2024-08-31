@@ -24,8 +24,11 @@ export const dbGetArticle = async () => {
 };
 
 export const dbGetArticleBySlug = async (slug: string) => {
+  const currentWorkingDirectory = process.cwd();
+  console.log("currentWorkingDirectory", currentWorkingDirectory);
+
   const markdownFile = fs.readFileSync(
-    path.join("src/content", slug + ".mdx"),
+    path.join(currentWorkingDirectory, ROOT_DIRECTORY, slug + ".mdx"),
     "utf-8"
   );
 
