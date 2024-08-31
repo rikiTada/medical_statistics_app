@@ -1,13 +1,12 @@
-import remarkGfm from "remark-gfm";
+import { compileMDX } from "next-mdx-remote/rsc";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkBreaks from "remark-breaks";
-import { compileMDX } from "next-mdx-remote/rsc";
-import { CustomMDXProps } from "@/lib/types";
+import remarkGfm from "remark-gfm";
 
 import { customComponents as components } from "@/components/mdx";
 
-export async function CustomMDX(props: any) {
-  const { content, frontmatter } = await compileMDX({
+export async function CustomMDX(props: { content: string }) {
+  const { content } = await compileMDX({
     source: props.content,
     components,
     options: {

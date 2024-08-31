@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ApiResponse } from "@/lib/api-util";
-import { dbGetArticle, dbGetArticleBySlug } from "@/lib/mdx";
+import { dbGetArticle } from "@/lib/mdx";
 
 /**
  * 記事全件取得 API
