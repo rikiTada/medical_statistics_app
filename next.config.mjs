@@ -22,6 +22,7 @@ const nextConfig = {
     if (!dev && !isServer) {
       config.optimization.usedExports = true;
     }
+    config.resolve.fallback = { fs: false };
     return config;
   },
 };
