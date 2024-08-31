@@ -1,27 +1,27 @@
-// import fs from "fs";
-// import path from "path";
+import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
 import { ROOT_DIRECTORY } from "@/lib/const";
 import { metadata } from "@/app/layout";
 
 // const rootDirectory = path.join(process.cwd(), "src", "content");
 
-// export const dbGetArticle = async () => {
-//   const files = fs.readdirSync(path.join(ROOT_DIRECTORY));
+export const dbGetArticle = async () => {
+  const files = fs.readdirSync(path.join(ROOT_DIRECTORY));
 
-//   return files.map((filename) => {
-//     const fileContent = fs.readFileSync(
-//       path.join(ROOT_DIRECTORY, filename),
-//       "utf-8"
-//     );
+  return files.map((filename) => {
+    const fileContent = fs.readFileSync(
+      path.join(ROOT_DIRECTORY, filename),
+      "utf-8"
+    );
 
-//     const { data: meta } = matter(fileContent);
-//     return {
-//       meta,
-//       slug: filename.replace(".mdx", ""),
-//     };
-//   });
-// };
+    const { data: meta } = matter(fileContent);
+    return {
+      meta,
+      slug: filename.replace(".mdx", ""),
+    };
+  });
+};
 
 // export const dbGetArticleBySlug = async (slug: string) => {
 //   const markdownFile = fs.readFileSync(
@@ -38,12 +38,12 @@ import { metadata } from "@/app/layout";
 //   };
 // };
 
-export const dbGetArticle = async () => {
-  const meta = { title: "", slug: "", date: "" };
-  const data = "";
-  const slug = "";
-  return [{ meta, slug, data }];
-};
+// export const dbGetArticle = async () => {
+//   const meta = { title: "", slug: "", date: "" };
+//   const data = "";
+//   const slug = "";
+//   return [{ meta, slug, data }];
+// };
 
 export const dbGetArticleBySlug = async (slug: string) => {
   const meta = { title: "", slug: "" };
