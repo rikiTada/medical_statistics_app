@@ -2,9 +2,6 @@ import { ROOT_DIRECTORY } from "@/lib/const";
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
-// import { metadata } from "@/app/layout";
-
-// const rootDirectory = path.join(process.cwd(), "src", "content");
 
 export const dbGetArticle = async () => {
   const files = fs.readdirSync(path.join(ROOT_DIRECTORY));
@@ -25,8 +22,6 @@ export const dbGetArticle = async () => {
 
 export const dbGetArticleBySlug = async (slug: string) => {
   const currentWorkingDirectory = process.cwd();
-  console.log("currentWorkingDirectory", currentWorkingDirectory);
-
   const markdownFile = fs.readFileSync(
     path.join(currentWorkingDirectory, ROOT_DIRECTORY, slug + ".mdx"),
     "utf-8"
@@ -40,16 +35,3 @@ export const dbGetArticleBySlug = async (slug: string) => {
     content,
   };
 };
-
-// export const dbGetArticle = async () => {
-//   const meta = { title: "", slug: "", date: "" };
-//   const data = "";
-//   const slug = "";
-//   return [{ meta, slug, data }];
-// };
-
-// export const dbGetArticleBySlug = async (slug: string) => {
-//   const meta = { title: "", slug: "" };
-//   const data = "";
-//   return { meta, data };
-// };
