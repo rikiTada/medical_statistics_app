@@ -1,4 +1,4 @@
-import style from "@/components/components.module.scss";
+import "@/components/sidebar.scss";
 import { dbGetArticle } from "@/lib/mdx";
 import { cn } from "@/lib/utils";
 import { Home } from "lucide-react";
@@ -25,8 +25,7 @@ export default async function Sidebar({ className }: SidebarProps) {
     <div
       className={cn(
         className,
-        style.sidebar,
-        "bg-blue-900 p-4 min-w-60 overflow-y-auto no-scrollbar"
+        "sidebar bg-blue-900 p-4 min-w-60 overflow-y-auto no-scrollbar"
       )}
     >
       <Link
