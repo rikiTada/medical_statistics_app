@@ -1,4 +1,5 @@
-import style from "@/components/ui/ui.module.scss";
+// import style from "@/components/ui/ui.module.scss";
+import "@/components/ui/bookmark.scss";
 import { unfurl } from "unfurl.js";
 // import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -11,7 +12,7 @@ export default async function Bookmark({ url }: BookmarkProps) {
   const result = await unfurl(url);
 
   return (
-    <div className={cn(style.bookmark)}>
+    <div className={cn("bookmark")}>
       <a href={url} target="_blank" rel="noopener noreferrer">
         <div>
           <div>{result.title}</div>
