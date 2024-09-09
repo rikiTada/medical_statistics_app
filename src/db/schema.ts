@@ -1,4 +1,3 @@
-import { sql } from "@vercel/postgres";
 import {
   pgTable,
   serial,
@@ -6,9 +5,6 @@ import {
   timestamp,
   uniqueIndex,
 } from "drizzle-orm/pg-core";
-import { drizzle } from "drizzle-orm/vercel-postgres";
-
-export const db = drizzle(sql);
 
 export const UserTable = pgTable(
   "users",
