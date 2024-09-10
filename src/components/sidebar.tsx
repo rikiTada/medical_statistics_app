@@ -1,4 +1,6 @@
+import { auth } from "@/auth";
 import "@/components/sidebar.scss";
+import { SignIn } from "@/components/sign-in";
 import { dbGetArticle } from "@/lib/mdx";
 import { cn } from "@/lib/utils";
 import { Home } from "lucide-react";
@@ -10,6 +12,8 @@ type SidebarProps = Readonly<{
 
 export default async function Sidebar({ className }: SidebarProps) {
   const data = await dbGetArticle();
+  const session = await auth()
+  console.log(session?.user)
 
   const menuList = [
     {
@@ -59,6 +63,8 @@ export default async function Sidebar({ className }: SidebarProps) {
           ))}
         </div>
       </div>
+
+      <SignIn />
 
       {/* <div className="absolute bottom-0 left-0 w-full h-0 overflow-hidden">
         <div
