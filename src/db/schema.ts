@@ -6,7 +6,7 @@ import {
   uniqueIndex,
 } from "drizzle-orm/pg-core";
 
-export const UserTable = pgTable(
+export const user = pgTable(
   "users",
   {
     id: serial("id").primaryKey(),
