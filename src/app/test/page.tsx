@@ -1,4 +1,9 @@
+import { getArticleTable } from "@/db/service";
+
 export default async function Page() {
+  const data = await getArticleTable();
+
+  console.log("Results", data);
   // http://localhost:3000 を入れないとエラーになる
   // const data = await fetch("http://localhost:3000/api").then((res) =>
   //   res.json()
