@@ -15,8 +15,8 @@ export default async function Page() {
   //           <td>{d.id}</td>
   //           <td>{d.name}</td>
   //           <td>{d.email}</td>
-  //           <td>{format(d.createdAt, "yyyy-MM-dd HH:mm:ss")}</td>
-  //           <td>{format(d.updateAt, "yyyy-MM-dd HH:mm:ss")}</td>
+  //           <td>{formatedDateStr(d.createdAt)}</td>;
+  //           <td>{formatedDateStr(d.updateAt)}</td>;
   //         </tr>
   //       ))}
   //     </table>

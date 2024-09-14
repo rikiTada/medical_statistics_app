@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { articles } from "@/db/schema";
-import { format } from "date-fns";
+import { formatedDateStr } from "@/lib/date";
 import Link from "next/link";
 
 export default async function Page() {
@@ -16,7 +16,7 @@ export default async function Page() {
         <div key={d.id}>
           <h1 className="max-w-40 truncate">{d.id}</h1>
           <h2>{d.title}</h2>
-          <p>{format(d.createdAt, "yyyy-MM-dd HH:mm:ss")}</p>
+          <p>{formatedDateStr(d.createdAt)}</p>
         </div>
       ))}
     </>
