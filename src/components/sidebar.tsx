@@ -1,4 +1,6 @@
 import "@/components/sidebar.scss";
+import { db } from "@/db";
+import { articles } from "@/db/schema";
 import { dbGetArticle } from "@/lib/mdx";
 import { cn } from "@/lib/utils";
 import { Home } from "lucide-react";
@@ -9,15 +11,23 @@ type SidebarProps = Readonly<{
 }>;
 
 export default async function Sidebar({ className }: SidebarProps) {
-  const data = await dbGetArticle();
+  const fs = await dbGetArticle();
+
+  const data = await db.select().from(articles);
 
   const menuList = [
     {
       group: "記事一覧",
       items: data?.map((article) => ({
-        link: `/articles/${article.slug}`,
-        text: article.meta.title,
+        link: `/articles/${article.id}`,
+        text: article.title,
       })),
+      fs: fs // fsはあとで消すやつ
+        ?.filter((fs) => fs.meta.title)
+        .map((article) => ({
+          link: `/articles/${article.slug}`,
+          text: article.meta.title,
+        })),
     },
   ];
 
@@ -43,18 +53,31 @@ export default async function Sidebar({ className }: SidebarProps) {
           {menuList.map((menu) => (
             <div key={menu.group} className="py-2">
               <span className="text-xs my-2">{menu.group}</span>
-              {menu.items
-                ? menu.items.map((item) => (
-                    <div
-                      key={item.link}
-                      className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
-                    >
-                      <Link href={item.link} className="text-base ">
-                        <span className="truncate block">- {item.text}</span>
-                      </Link>
-                    </div>
-                  ))
-                : null}
+              {menu.items &&
+                menu.items.map((item) => (
+                  <div
+                    key={item.link}
+                    className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
+                  >
+                    <Link href={item.link} className="text-base ">
+                      <span className="truncate block">- {item.text}</span>
+                    </Link>
+                  </div>
+                ))}
+
+              {/*  fsはあとで消すやつ  */}
+              {menu.fs &&
+                menu.fs.map((item) => (
+                  <div
+                    key={item.link}
+                    className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
+                  >
+                    <Link href={item.link} className="text-base ">
+                      <span className="truncate block">- {item.text}</span>
+                    </Link>
+                  </div>
+                ))}
+              {/* ================ */}
             </div>
           ))}
         </div>
