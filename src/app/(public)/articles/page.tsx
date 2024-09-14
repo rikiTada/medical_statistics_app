@@ -5,7 +5,8 @@ import { articles } from "@/db/schema";
 export default async function Page() {
   try {
     const data = await db.select().from(articles);
-    if (!data || data.length === 0) return <NoData />;
+    if (!data || data.length === 0)
+      throw new Error("記事が見つかりませんでした。");
 
     return (
       <div>
@@ -18,6 +19,6 @@ export default async function Page() {
       </div>
     );
   } catch (error) {
-    return <NoData />;
+    return <NoData message={error + ""} />;
   }
 }
