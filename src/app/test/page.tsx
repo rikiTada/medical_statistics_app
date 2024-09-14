@@ -2,13 +2,7 @@ import { db } from "@/db";
 import { users } from "@/db/schema";
 import { format } from "date-fns";
 
-export default async function Page({
-  params,
-}: {
-  params: { user: string };
-}): Promise<JSX.Element> {
-  // const data = await getArticleTable();
-
+export default async function Page() {
   const data = await db.select().from(users);
 
   return (
