@@ -3,22 +3,22 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
-export const dbGetArticle = async () => {
-  const files = fs.readdirSync(path.join(ROOT_DIRECTORY));
+// export const dbGetArticle = async () => {
+//   const files = fs.readdirSync(path.join(ROOT_DIRECTORY));
 
-  return files.map((filename) => {
-    const fileContent = fs.readFileSync(
-      path.join(ROOT_DIRECTORY, filename),
-      "utf-8"
-    );
+//   return files.map((filename) => {
+//     const fileContent = fs.readFileSync(
+//       path.join(ROOT_DIRECTORY, filename),
+//       "utf-8"
+//     );
 
-    const { data: meta } = matter(fileContent);
-    return {
-      meta,
-      slug: filename.replace(".mdx", ""),
-    };
-  });
-};
+//     const { data: meta } = matter(fileContent);
+//     return {
+//       meta,
+//       slug: filename.replace(".mdx", ""),
+//     };
+//   });
+// };
 
 export const dbGetArticleBySlug = async (slug: string) => {
   const currentWorkingDirectory = process.cwd();
