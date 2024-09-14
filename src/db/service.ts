@@ -2,6 +2,10 @@ import { db } from "@/db";
 import { articles } from "@/db/schema";
 import { Article } from "@/db/type";
 
+// ========================================
+//  Article
+// ========================================
+
 export const insertArticle = async (article: Article) => {
   const data = await db.insert(articles).values(article);
   // console.log("Inserted", data);
