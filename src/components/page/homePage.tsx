@@ -1,8 +1,10 @@
-import { dbGetArticle } from "@/lib/mdx";
+import { db } from "@/db";
+import { articles } from "@/db/schema";
+import { format } from "date-fns";
 import Link from "next/link";
 
 export default async function HomePage() {
-  const data = await dbGetArticle();
+  const data = await db.select().from(articles);
 
   return (
     <section className="p-4 rounded bg-background">
@@ -10,10 +12,12 @@ export default async function HomePage() {
 
       <div className="grid gap-2">
         {data.map((article) => (
-          <Link href={"/articles/" + article.slug} passHref key={article.slug}>
+          <Link href={"/articles/" + article.id} passHref key={article.id}>
             <div className="border p-4 rounded">
-              <h3 className="m-0 text-lg font-blod">{article.meta.title}</h3>
-              <p className=" text-gray-400">{article.meta.date}</p>
+              <h3 className="m-0 text-lg font-blod">{article.title}</h3>
+              <p className=" text-gray-400">
+                {format(article.createdAt, "yyyy-MM-dd HH:mm")}
+              </p>
             </div>
           </Link>
         ))}
