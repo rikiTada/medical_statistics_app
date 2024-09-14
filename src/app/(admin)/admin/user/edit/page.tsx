@@ -1,5 +1,5 @@
-import { createUser } from "@/app/test/edit/actions";
 import { Input } from "@/components/ui/input";
+import { createUser } from "./actions";
 
 export default async function Page() {
   const inssertData = {
