@@ -13,7 +13,7 @@ export default async function Page() {
         {data.map((d) => (
           <div key={d.id}>
             <h2>{d.title}</h2>
-            <p>{d.content_url}</p>
+            <p>{d.contentUrl}</p>
           </div>
         ))}
       </div>
