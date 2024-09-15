@@ -29,7 +29,7 @@ export default async function Sidebar({ className }: SidebarProps) {
     {
       category: "記事一覧",
       items: data.map((article) => ({
-        href: `/articles/${article.id}`,
+        href: `/article/${article.id}`,
         title: article.title,
       })),
     },
@@ -49,7 +49,8 @@ export default async function Sidebar({ className }: SidebarProps) {
     return (
       <div key={category} className="py-2">
         <span className="text-xs my-2">{category}</span>
-        {items && items.map((item) => <SidebarLink {...item} />)}
+        {items &&
+          items.map((item) => <SidebarLink key={item.title} {...item} />)}
       </div>
     );
   };
@@ -81,7 +82,7 @@ export default async function Sidebar({ className }: SidebarProps) {
       <div className="flex h-full w-full flex-col overflow-hidden rounded-none text-card">
         <div className="overflow-hidden px-2 py-1.5">
           {menuList.map((menu) => (
-            <SidebarCategory {...menu} />
+            <SidebarCategory key={menu.category} {...menu} />
           ))}
         </div>
       </div>

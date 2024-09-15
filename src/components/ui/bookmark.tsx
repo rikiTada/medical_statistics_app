@@ -37,10 +37,10 @@ export default async function Bookmark({ url }: BookmarkProps) {
           {result.open_graph.images &&
             result.open_graph.images.map((image) => (
               <img
+                key={image.url}
                 src={image.url}
                 alt={image.alt || ""}
                 loading="lazy"
-                key={image.url}
               />
             ))[0]}
         </div>
