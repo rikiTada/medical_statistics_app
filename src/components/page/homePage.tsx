@@ -12,7 +12,7 @@ export default async function HomePage() {
 
       <div className="grid gap-2">
         {data.map((article) => (
-          <Link href={"/articles/" + article.id} passHref key={article.id}>
+          <Link href={"/article/" + article.id} passHref key={article.id}>
             <div className="border p-4 rounded">
               <h3 className="m-0 text-lg font-blod">{article.title}</h3>
               <p className=" text-gray-400">
