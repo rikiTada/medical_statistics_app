@@ -19,11 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className="scroll-smooth">
-      <body
-        className={cn(NotoSansJp.className, "min-h-screen bg-blue-100/30 ")}
-      >
-        {children}
-      </body>
+      <body className={cn(NotoSansJp.className, "min-h-dvh")}>{children}</body>
     </html>
   );
 }
