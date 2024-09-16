@@ -1,6 +1,6 @@
-// import { ApiResponse } from "@/lib/api-util";
+ import { ApiResponse } from "@/lib/api-util";
 // import { dbGetArticle } from "@/lib/mdx";
-// import { NextRequest, NextResponse } from "next/server";
+ import { NextRequest, NextResponse } from "next/server";
 
 // /**
 //  * 記事全件取得 API
