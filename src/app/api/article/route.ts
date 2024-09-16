@@ -7,12 +7,12 @@
 //  *
 //  * GET /api/artice/
 //  */
-// export async function GET(_req: NextRequest): Promise<NextResponse> {
-//   try {
+ export async function GET(_req: NextRequest): Promise<NextResponse> {
+   try {
 //     const data = await dbGetArticle();
 
-//     return ApiResponse.successResponse(data);
-//   } catch (error: unknown) {
-//     return ApiResponse.errorResponse(error, 404);
-//   }
-// }
+     return ApiResponse.successResponse({message:"Helloo World!"});
+   } catch (error: unknown) {
+     return ApiResponse.errorResponse(error, 404);
+   }
+ }
