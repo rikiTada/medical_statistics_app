@@ -8,7 +8,7 @@ type BookmarkProps = {
   url: string;
 };
 
-export default async function Bookmark({ url }: BookmarkProps) {
+export async function Bookmark({ url }: BookmarkProps) {
   const result = await unfurl(url);
 
   return (
