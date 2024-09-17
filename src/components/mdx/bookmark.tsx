@@ -1,5 +1,5 @@
 // import style from "@/components/ui/ui.module.scss";
-import "@/components/ui/bookmark.scss";
+import "@/components/mdx/bookmark.scss";
 import { unfurl } from "unfurl.js";
 // import Image from "next/image";
 import { cn } from "@/lib/utils";
