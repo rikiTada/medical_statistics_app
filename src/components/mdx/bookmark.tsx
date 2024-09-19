@@ -1,5 +1,5 @@
 // import style from "@/components/ui/ui.module.scss";
-import "@/components/ui/bookmark.scss";
+import "@/components/mdx/bookmark.scss";
 import { unfurl } from "unfurl.js";
 // import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -8,7 +8,7 @@ type BookmarkProps = {
   url: string;
 };
 
-export default async function Bookmark({ url }: BookmarkProps) {
+export async function Bookmark({ url }: BookmarkProps) {
   const result = await unfurl(url);
 
   return (

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Indent } from "@/components/ui/indent";
-import Bookmark from "@/components/ui/bookmark";
+import { Bookmark } from "@/components/mdx/bookmark";
+import { Indent } from "@/components/mdx/indent";
 import { MdxAccordion as Accordion } from "@/components/mdx/mdx-accordion";
-import { cn } from "@/lib/utils";
 import style from "@/components/mdx/mdx.module.scss";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const customComponents = {
   h1: (props: any) => (
