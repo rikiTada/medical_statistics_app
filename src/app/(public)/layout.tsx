@@ -7,9 +7,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex overflow-x-hidden min-h-dvh">
+    <div className="flex  min-h-dvh">
       <Sidebar />
-      <div className="px-10 py-4">
+      <div className="px-10 py-4 w-full">
         {children}
         <FloatingButton />
       </div>
