@@ -1,7 +1,7 @@
 "use server";
 
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 import { db } from "@/db";
 import { articles } from "@/db/schema";
@@ -32,7 +32,7 @@ export const createFile = (filePath: string, content: string): void => {
   }
 
   // Write content to the file
-  fs.writeFileSync(filePath, content, { flag: 'w' });
+  fs.writeFileSync(filePath, content, { flag: "w" });
 
   console.log(`File created at: ${filePath}`);
 };
