@@ -12,7 +12,9 @@
     "deploy": "npm run pages:build && wrangler pages deploy",
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
-    "studio": "bunx drizzle-kit studio"
+    "studio": "bunx drizzle-kit studio",
+    "db:start": "docker compose up -d",
+    "db:stop": "docker compose down"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.1",
@@ -22,7 +24,6 @@
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@types/mdx": "^2.0.13",
-    "@types/pg": "^8.11.9",
     "@vercel/postgres": "^0.10.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -33,7 +34,7 @@
     "lucide-react": "^0.418.0",
     "next": "14.2.5",
     "next-mdx-remote": "^5.0.0",
-    "pg": "^8.12.0",
+    "postgres": "^3.4.4",
     "react": "^18",
     "react-dom": "^18",
     "rehype-pretty-code": "^0.13.2",
