@@ -28,8 +28,10 @@ export const createFile = (formData: FormData): void => {
   const filePath = formData.get("filepath") as string;
   const content = formData.get("content") as string;
 
+  const currentWorkingDirectory = process.cwd();
+
   // Ensure the directory exists
-  const dir = path.dirname(filePath);
+  const dir = path.join(currentWorkingDirectory, filePath + ".mdx");
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
