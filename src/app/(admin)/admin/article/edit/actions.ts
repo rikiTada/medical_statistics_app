@@ -24,7 +24,10 @@ export const createArticle = async (formData: FormData) => {
  *
  * @example createFile('./data/example.txt', 'This is the file content.');
  */
-export const createFile = (filePath: string, content: string): void => {
+export const createFile = (formData: FormData): void => {
+  const filePath = formData.get("filepath") as string;
+  const content = formData.get("content") as string;
+
   // Ensure the directory exists
   const dir = path.dirname(filePath);
   if (!fs.existsSync(dir)) {

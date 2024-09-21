@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { db } from "@/db";
 import { articles } from "@/db/schema";
 import { formatedDateStr } from "@/lib/date";
@@ -10,7 +11,12 @@ export default async function Page() {
 
   return (
     <>
-      <Link href="/admin/article/edit">記事編集</Link>
+      <Button asChild>
+        <Link href="/admin/article/edit">記事編集</Link>
+      </Button>
+      <Button asChild>
+        <Link href="/admin/article/create">ファイル追加</Link>
+      </Button>
 
       {data.map((d) => (
         <div key={d.id}>
