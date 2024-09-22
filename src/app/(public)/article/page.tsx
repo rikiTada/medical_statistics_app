@@ -1,24 +1,5 @@
-import { NoData } from "@/components/nodata";
-import { db } from "@/db";
-import { articles } from "@/db/schema";
+import { ArticleListPage } from "@/components/page/articlePage";
 
 export default async function Page() {
-  try {
-    const data = await db.select().from(articles);
-    if (!data || data.length === 0)
-      throw new Error("記事が見つかりませんでした。");
-
-    return (
-      <div>
-        {data.map((d) => (
-          <div key={d.id}>
-            <h2>{d.title}</h2>
-            <p>{d.contentUrl}</p>
-          </div>
-        ))}
-      </div>
-    );
-  } catch (error) {
-    return <NoData message={error + ""} />;
-  }
+  return <ArticleListPage />;
 }

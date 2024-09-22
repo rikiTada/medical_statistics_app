@@ -1,13 +1,13 @@
 import { db } from "@/db";
 import { articles } from "@/db/schema";
-import { Article } from "@/db/type";
+import { ArticleType } from "@/db/type";
 import { eq } from "drizzle-orm";
 
 // ========================================
 //  Article
 // ========================================
 
-export const insertArticle = async (article: Article) => {
+export const insertArticle = async (article: ArticleType) => {
   const data = await db.insert(articles).values(article);
   // console.log("Inserted", data);
   return data;
