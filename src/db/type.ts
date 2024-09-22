@@ -8,11 +8,11 @@ import * as schema from "@/db/schema";
 // ========================================
 
 // Users
-export type User = Doc<"users">;
+export type UserType = Doc<"users">;
 export type UserInsert = DocInsert<"users">;
 
 // Articles
-export type Article = Doc<"articles">;
+export type ArticleType = Doc<"articles">;
 export type ArticleInsert = DocInsert<"articles">;
 
 // ========================================
