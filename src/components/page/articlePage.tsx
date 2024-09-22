@@ -1,5 +1,5 @@
-import { CustomMDX } from "@/components/custom-mdx";
 import { Loading } from "@/components/loading";
+import { CustomMDX } from "@/components/mdx/custom-mdx";
 import { ArticleListItem } from "@/components/page/article/articleListItem";
 import { db } from "@/db";
 import { articles } from "@/db/schema";
