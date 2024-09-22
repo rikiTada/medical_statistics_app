@@ -9,8 +9,6 @@ import { NextRequest, NextResponse } from "next/server";
  */
 export async function GET(_req: NextRequest): Promise<NextResponse> {
   try {
-    // const data = await getArticleTable();
-    // console.log("Results", data);
     return ApiResponse.successResponse({ message: "Hello, World!" });
   } catch (error: unknown) {
     return ApiResponse.errorResponse(error, 404);
