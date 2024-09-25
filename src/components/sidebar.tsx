@@ -48,7 +48,7 @@ export default async function Sidebar({ className }: SidebarProps) {
   const SidebarCategory = ({ category, items }: LinkWithCategory) => {
     return (
       <div key={category} className="py-2">
-        <span className="text-xs my-2">{category}</span>
+        <span className="text-xs my-2 text-card">{category}</span>
         {items &&
           items.map((item) => <SidebarLink key={item.title} {...item} />)}
       </div>
@@ -59,7 +59,7 @@ export default async function Sidebar({ className }: SidebarProps) {
     return (
       <div
         key={href}
-        className="p-1 w-full hover:bg-blue-950 hover:text-primary-background rounded"
+        className="p-1 text-card w-full hover:bg-blue-950 hover:text-primary-background rounded"
       >
         <Link href={href} className="text-base ">
           <span className="truncate block">- {title}</span>
@@ -76,16 +76,18 @@ export default async function Sidebar({ className }: SidebarProps) {
       )}
     >
       <HomeLink />
-
       <hr />
-
-      <div className="flex h-full w-full flex-col overflow-hidden rounded-none text-card">
+      <div className="flex h-full w-full flex-col overflow-hidden rounded-none">
         <div className="overflow-hidden px-2 py-1.5">
           {menuList.map((menu) => (
             <SidebarCategory key={menu.category} {...menu} />
           ))}
         </div>
       </div>
+
+      {/* <div className="flex-1" /> */}
+
+      <SidebarLink href="/admin" title="管理画面" />
     </div>
   );
 }
